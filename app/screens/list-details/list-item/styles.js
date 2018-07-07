@@ -9,6 +9,15 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'lightgrey',
   },
+  checkBoxContainer: {
+    width: 32,
+    margin: 0,
+    padding: 0,
+    marginRight: 0,
+    marginLeft: 0,
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+  },
   textInput: {
     flex: 1,
     paddingHorizontal: 8,

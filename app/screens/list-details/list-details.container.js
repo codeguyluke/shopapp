@@ -34,6 +34,7 @@ export class ListsDetailsContainer extends Component {
     }).isRequired,
     onAddItem: PropTypes.func.isRequired,
     onUpdateItem: PropTypes.func.isRequired,
+    onToggleItem: PropTypes.func.isRequired,
     onDeleteItem: PropTypes.func.isRequired,
   }
 
@@ -43,12 +44,13 @@ export class ListsDetailsContainer extends Component {
   }
 
   render() {
-    const { listDetails, onAddItem, onUpdateItem, onDeleteItem } = this.props
+    const { listDetails, onAddItem, onUpdateItem, onToggleItem, onDeleteItem } = this.props
     return (
       <ListDetails
         items={listDetails.items}
         onAddItem={onAddItem}
         onUpdateItem={onUpdateItem}
+        onToggleItem={onToggleItem}
         onDeleteItem={onDeleteItem}
       />
     )
@@ -69,6 +71,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         listId: ownProps.navigation.getParam('listId'),
         id: uuid.v1(),
         name: '',
+        checked: false,
       })
     ),
   onUpdateItem: ({ id, name }) =>
@@ -77,6 +80,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         listId: ownProps.navigation.getParam('listId'),
         id,
         name,
+      })
+    ),
+  onToggleItem: ({ id }) => () =>
+    dispatch(
+      shoppingListsState.actions.toggleItem({
+        listId: ownProps.navigation.getParam('listId'),
+        id,
       })
     ),
   onDeleteItem: ({ id }) => () =>

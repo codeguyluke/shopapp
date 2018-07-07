@@ -45,6 +45,26 @@ const updateItemHandler = (state, { payload: { listId, id, name } }) => {
   }
 }
 
+const toggleItemHandler = (state, { payload: { listId, id } }) => {
+  const shoppingList = state[listId]
+  const newItem = {
+    ...shoppingList.items[id],
+    checked: !shoppingList.items[id].checked,
+  }
+  const newItemsList = {
+    ...shoppingList.items,
+    [id]: newItem,
+  }
+  const newShoppingList = {
+    ...shoppingList,
+    items: newItemsList,
+  }
+  return {
+    ...state,
+    [listId]: newShoppingList,
+  }
+}
+
 const deleteItemHandler = (state, { payload: { listId, id } }) => {
   const shoppingList = state[listId]
   const newListItems = shoppingList.items
@@ -75,6 +95,8 @@ export default function shoppingListsReducer(state = initialState, action = { ty
       return addItemHandler(state, action)
     case types.UPDATE_ITEM:
       return updateItemHandler(state, action)
+    case types.TOGGLE_ITEM:
+      return toggleItemHandler(state, action)
     case types.DELETE_ITEM:
       return deleteItemHandler(state, action)
     default:

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import styles from './shopping-lists.styles'
 
 const NO_CURRENT_LISTS_TEXT =
-  "You currently don't have any shopping list open.\nPress 'Add' button to create one."
+  "You currently don't have any shopping list open.\nPress 'Plus' icon above in order to create one."
 
 export const DATE_FORMAT = 'MM/DD/YYYY, HH:mm'
 
