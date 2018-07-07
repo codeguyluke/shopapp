@@ -1,56 +1,19 @@
 import React from 'react'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { Button } from 'react-native-elements'
 
-import ShoppingListsScreen from './screens/shopping-lists/shopping-lists'
-import ListDetailsScreen from './screens/list-details/list-details'
-
-/**
- * CurrentLists stack navigator
- */
-
-const currentListScreenNavigationOptions = ({ navigation }) => ({
-  title: 'Current shopping lists',
-  headerRight: (
-    <Button
-      onPress={() => {
-        navigation.navigate('Details')
-      }}
-      title="Info"
-      color="#fff"
-    />
-  ),
-})
-
-const currentListDetailsScreenNavigationOptions = () => ({
-  title: 'List details',
-  headerBackTitle: null,
-})
+import ShoppingListsScreen from './screens/shopping-lists/shopping-lists.container'
+import ListDetailsScreen from './screens/list-details/list-details.container'
 
 const CurrentListsStack = createStackNavigator({
-  List: {
-    screen: ShoppingListsScreen,
-    navigationOptions: currentListScreenNavigationOptions,
-  },
-  Details: {
-    screen: ListDetailsScreen,
-    navigationOptions: currentListDetailsScreenNavigationOptions,
-  },
+  List: ShoppingListsScreen,
+  Details: ListDetailsScreen,
 })
-
-/**
- * ArchivedLists stack navigator
- */
 
 const ArchivedListsStack = createStackNavigator({
   List: ShoppingListsScreen,
   Details: ListDetailsScreen,
 })
-
-/**
- * Apps Tab Navigator
- */
 
 const tabNavigatorNavigationOptions = ({ navigation }) => ({
   tabBarIcon: ({ tintColor }) => {
@@ -68,8 +31,8 @@ export default createBottomTabNavigator(
   {
     navigationOptions: tabNavigatorNavigationOptions,
     tabBarOptions: {
-      activeTintColor: 'crimson',
-      inactiveTintColor: 'grey',
+      activeTintColor: 'navy',
+      inactiveTintColor: 'lightgrey',
       showLabel: false,
     },
   }

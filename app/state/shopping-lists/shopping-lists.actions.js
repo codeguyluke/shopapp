@@ -12,9 +12,9 @@ export const types = {
  * Actions
  */
 
-const createShoppingList = ({ id }) => ({
+const createShoppingList = payload => ({
   type: CREATE_SHOPPING_LIST,
-  payload: { id },
+  payload,
 })
 
 export default {
