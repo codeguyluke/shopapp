@@ -15,7 +15,7 @@ export default StyleSheet.create({
   listItemTitle: {
     fontFamily: 'Hind',
     fontSize: 18,
-    color: 'navy',
+    color: 'midnightblue',
   },
   listItemSubtitle: {
     fontFamily: 'Hind-SemiBold',

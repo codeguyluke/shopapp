@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
@@ -8,11 +8,11 @@ import styles from './shopping-lists.styles'
 const NO_CURRENT_LISTS_TEXT =
   "You currently don't have any shopping list open.\nPress 'Add' button to create one."
 
-export const DATE_FORMAT = 'MM/DD/YYYY HH:mm'
+export const DATE_FORMAT = 'MM/DD/YYYY, HH:mm'
 
 export default function ShoppingLists({ lists, onListPress }) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {Object.keys(lists).length === 0 ? (
         <Text style={styles.noListsText}>{NO_CURRENT_LISTS_TEXT}</Text>
       ) : (
@@ -30,7 +30,7 @@ export default function ShoppingLists({ lists, onListPress }) {
           ))}
         </List>
       )}
-    </View>
+    </ScrollView>
   )
 }
 

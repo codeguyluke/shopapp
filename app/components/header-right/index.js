@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     padding: 0,
     paddingLeft: 16,
-  }
+  },
 })
 
 export default function HeaderRight({ onPress, title }) {
@@ -16,7 +16,7 @@ export default function HeaderRight({ onPress, title }) {
     <Button
       onPress={onPress}
       buttonStyle={styles.button}
-      color="navy"
+      color="midnightblue"
       fontFamily="Hind"
       fontSize={18}
       title={title}
