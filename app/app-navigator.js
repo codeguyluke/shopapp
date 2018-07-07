@@ -31,7 +31,7 @@ export default createBottomTabNavigator(
   {
     navigationOptions: tabNavigatorNavigationOptions,
     tabBarOptions: {
-      activeTintColor: 'navy',
+      activeTintColor: 'midnightblue',
       inactiveTintColor: 'lightgrey',
       showLabel: false,
     },

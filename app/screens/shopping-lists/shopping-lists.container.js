@@ -11,7 +11,7 @@ import ShoppingLists, { DATE_FORMAT } from './shopping-lists'
 export class ShoppingListsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Current shopping lists',
-    headerTintColor: 'navy',
+    headerTintColor: 'midnightblue',
     headerRight: (
       <HeaderRight
         onPress={() => {

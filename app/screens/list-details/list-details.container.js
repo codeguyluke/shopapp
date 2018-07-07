@@ -11,7 +11,7 @@ import ListDetails from './list-details'
 export class ListsDetailsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.title,
-    headerTintColor: 'navy',
+    headerTintColor: 'midnightblue',
     headerRight: (
       <HeaderRight
         onPress={() => {
@@ -33,6 +33,7 @@ export class ListsDetailsContainer extends Component {
     }).isRequired,
     onAddItem: PropTypes.func.isRequired,
     onUpdateItem: PropTypes.func.isRequired,
+    onDeleteItem: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
@@ -41,9 +42,14 @@ export class ListsDetailsContainer extends Component {
   }
 
   render() {
-    const { listDetails, onAddItem, onUpdateItem } = this.props
+    const { listDetails, onAddItem, onUpdateItem, onDeleteItem } = this.props
     return (
-      <ListDetails items={listDetails.items} onAddItem={onAddItem} onUpdateItem={onUpdateItem} />
+      <ListDetails
+        items={listDetails.items}
+        onAddItem={onAddItem}
+        onUpdateItem={onUpdateItem}
+        onDeleteItem={onDeleteItem}
+      />
     )
   }
 }
@@ -70,6 +76,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         listId: ownProps.navigation.getParam('listId'),
         id,
         name,
+      })
+    ),
+  onDeleteItem: ({ id }) => () =>
+    dispatch(
+      shoppingListsState.actions.deleteItem({
+        listId: ownProps.navigation.getParam('listId'),
+        id,
       })
     ),
 })

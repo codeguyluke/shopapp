@@ -45,6 +45,20 @@ const updateItemHandler = (state, { payload: { listId, id, name } }) => {
   }
 }
 
+const deleteItemHandler = (state, { payload: { listId, id } }) => {
+  const shoppingList = state[listId]
+  const newListItems = shoppingList.items
+  delete newListItems[id]
+  const newShoppingList = {
+    ...shoppingList,
+    items: newListItems,
+  }
+  return {
+    ...state,
+    [listId]: newShoppingList,
+  }
+}
+
 /**
  * Reducer definition
  */
@@ -61,6 +75,8 @@ export default function shoppingListsReducer(state = initialState, action = { ty
       return addItemHandler(state, action)
     case types.UPDATE_ITEM:
       return updateItemHandler(state, action)
+    case types.DELETE_ITEM:
+      return deleteItemHandler(state, action)
     default:
       return state
   }

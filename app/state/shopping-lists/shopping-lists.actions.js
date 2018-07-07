@@ -5,11 +5,13 @@
 const CREATE_SHOPPING_LIST = 'CREATE_SHOPPING_LIST'
 const ADD_ITEM = 'ADD_ITEM'
 const UPDATE_ITEM = 'UPDATE_ITEM'
+const DELETE_ITEM = 'DELETE_ITEM'
 
 export const types = {
   CREATE_SHOPPING_LIST,
   ADD_ITEM,
   UPDATE_ITEM,
+  DELETE_ITEM,
 }
 
 /**
@@ -31,8 +33,14 @@ const updateItem = ({ listId, id, name }) => ({
   payload: { listId, id, name },
 })
 
+const deleteItem = ({ listId, id }) => ({
+  type: DELETE_ITEM,
+  payload: { listId, id },
+})
+
 export default {
   createShoppingList,
   addItem,
   updateItem,
+  deleteItem,
 }
