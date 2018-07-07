@@ -34,6 +34,10 @@ export default createBottomTabNavigator(
       activeTintColor: 'midnightblue',
       inactiveTintColor: 'lightgrey',
       showLabel: false,
+      style: {
+        borderTopWidth: 0,
+        backgroundColor: 'whitesmoke',
+      },
     },
   }
 )

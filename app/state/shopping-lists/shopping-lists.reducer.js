@@ -4,7 +4,7 @@ import { types } from './shopping-lists.actions'
  * Action handlers
  */
 
-const createShoppingListHandler = (state, { payload }) => ({
+const createListHandler = (state, { payload }) => ({
   ...state,
   [payload.id]: payload,
 })
@@ -70,7 +70,7 @@ export default function shoppingListsReducer(state = initialState, action = { ty
   console.log('reducer', state, action)
   switch (action.type) {
     case types.CREATE_SHOPPING_LIST:
-      return createShoppingListHandler(state, action)
+      return createListHandler(state, action)
     case types.ADD_ITEM:
       return addItemHandler(state, action)
     case types.UPDATE_ITEM:

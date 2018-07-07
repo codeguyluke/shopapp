@@ -5,19 +5,20 @@ import uuid from 'react-native-uuid'
 import get from 'lodash/get'
 
 import shoppingListsState from '../../state/shopping-lists'
-import HeaderRight from '../../components/header-right'
+import Header from '../../components/navigation-header'
 import ListDetails from './list-details'
 
 export class ListsDetailsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.title,
-    headerTintColor: 'midnightblue',
-    headerRight: (
-      <HeaderRight
-        onPress={() => {
-          console.log('rename here')
+    header: (
+      <Header
+        title={navigation.state.params.title}
+        onRightPress={() => {
+          console.log('edit list')
         }}
-        title="Edit"
+        rightIconName="edit"
+        showBack
+        onBack={() => navigation.goBack()}
       />
     ),
   })

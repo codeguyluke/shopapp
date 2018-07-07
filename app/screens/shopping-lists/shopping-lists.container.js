@@ -5,20 +5,19 @@ import uuid from 'react-native-uuid'
 import moment from 'moment'
 
 import shoppingListsState from '../../state/shopping-lists'
-import HeaderRight from '../../components/header-right'
+import Header from '../../components/navigation-header'
 import ShoppingLists, { DATE_FORMAT } from './shopping-lists'
 
 export class ShoppingListsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Current shopping lists',
-    headerTintColor: 'midnightblue',
-    headerRight: (
-      <HeaderRight
-        onPress={() => {
+    header: (
+      <Header
+        title="Current shopping lists"
+        onRightPress={() => {
           const listId = navigation.state.params.onCreateList()
           navigation.navigate('Details', { listId })
         }}
-        title="Add"
+        rightIconName="add-circle"
       />
     ),
   })
@@ -57,7 +56,7 @@ const mapDispatchToProps = dispatch => ({
     const createdAt = moment()
     const title = `${createdAt.format(DATE_FORMAT)}`
     dispatch(
-      shoppingListsState.actions.createShoppingList({
+      shoppingListsState.actions.createList({
         id,
         createdAt,
         title,

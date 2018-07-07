@@ -18,7 +18,7 @@ export const types = {
  * Actions
  */
 
-const createShoppingList = ({ id, createdAt, title, items, archived }) => ({
+const createList = ({ id, createdAt, title, items, archived }) => ({
   type: CREATE_SHOPPING_LIST,
   payload: { id, createdAt, title, items, archived },
 })
@@ -39,7 +39,7 @@ const deleteItem = ({ listId, id }) => ({
 })
 
 export default {
-  createShoppingList,
+  createList,
   addItem,
   updateItem,
   deleteItem,
