@@ -4,9 +4,6 @@ import PropTypes from 'prop-types'
 import { Button } from 'react-native-elements'
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    backgroundColor: 'transparent',
-  },
   button: {
     backgroundColor: 'transparent',
     padding: 0,
@@ -14,28 +11,20 @@ const styles = StyleSheet.create({
   }
 })
 
-export default function HeaderRight({ onPress, type }) {
-  return type === 'add' ? (
+export default function HeaderRight({ onPress, title }) {
+  return (
     <Button
       onPress={onPress}
-      containerViewStyle={styles.buttonContainer}
       buttonStyle={styles.button}
       color="navy"
       fontFamily="Hind"
       fontSize={18}
-      title="Add"
-    />
-  ) : (
-    <Button
-      onPress={onPress}
-      containerViewStyle={styles.buttonContainer}
-      buttonStyle={styles.button}
-      icon={{ name: 'border-color', color: 'navy', size: 20 }}
+      title={title}
     />
   )
 }
 
 HeaderRight.propTypes = {
   onPress: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['add', 'edit']).isRequired,
+  title: PropTypes.string.isRequired,
 }

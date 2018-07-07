@@ -12,4 +12,14 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: 'darkslategrey',
   },
+  listItemTitle: {
+    fontFamily: 'Hind',
+    fontSize: 18,
+    color: 'navy',
+  },
+  listItemSubtitle: {
+    fontFamily: 'Hind-SemiBold',
+    fontSize: 12,
+    color: 'darkslategrey',
+  },
 })

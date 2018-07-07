@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import ImmutablePropTypes from 'react-immutable-proptypes'
 import uuid from 'react-native-uuid'
 import moment from 'moment'
 
 import shoppingListsState from '../../state/shopping-lists'
 import HeaderRight from '../../components/header-right'
-import ShoppingLists from './shopping-lists'
-
-const TITLE_FORMAT = 'MM/DD/YYYY HH:mm'
+import ShoppingLists, { DATE_FORMAT } from './shopping-lists'
 
 export class ShoppingListsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -18,40 +15,53 @@ export class ShoppingListsContainer extends Component {
     headerRight: (
       <HeaderRight
         onPress={() => {
-          const id = uuid.v1()
-          const title = `${moment().format(TITLE_FORMAT)}`
-          navigation.state.params.addList({ id, title })
-          navigation.navigate('Details', { listId: id })
+          const listId = navigation.state.params.createList()
+          navigation.navigate('Details', { listId })
         }}
-        type="add"
+        title="Add"
       />
     ),
   })
 
   static propTypes = {
-    lists: ImmutablePropTypes.map.isRequired,
-    addList: PropTypes.func.isRequired,
+    lists: PropTypes.object.isRequired,
+    createList: PropTypes.func.isRequired,
     navigation: PropTypes.shape({
       setParams: PropTypes.func.isRequired,
+      navigate: PropTypes.func.isRequired,
     }).isRequired,
   }
 
   componentDidMount() {
-    const { addList } = this.props
-    this.props.navigation.setParams({ addList })
+    const { createList } = this.props
+    this.props.navigation.setParams({ createList })
+  }
+
+  handleListPress = listId => () => {
+    const { navigation } = this.props
+    navigation.navigate('Details', { listId })
   }
 
   render() {
-    return <ShoppingLists lists={this.props.lists} />
+    return <ShoppingLists lists={this.props.lists} onListPress={this.handleListPress} />
   }
 }
 
 const mapStateToProps = state => ({
-  lists: state.getIn([shoppingListsState.STORE_NAME]),
+  lists: state[shoppingListsState.STORE_NAME],
 })
 
 const mapDispatchToProps = dispatch => ({
-  addList: params => dispatch(shoppingListsState.actions.createShoppingList(params)),
+  createList: () => {
+    const id = uuid.v1()
+    const createdAt = moment()
+    const title = `${createdAt.format(DATE_FORMAT)}`
+    const items = {}
+    const archived = false
+    const params = { id, title, createdAt, items, archived }
+    dispatch(shoppingListsState.actions.createShoppingList(params))
+    return id
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingListsContainer)

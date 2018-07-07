@@ -1,26 +1,44 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import ImmutablePropTypes from 'react-immutable-proptypes'
+import { List, ListItem } from 'react-native-elements'
+import PropTypes from 'prop-types'
 
 import styles from './shopping-lists.styles'
 
 const NO_CURRENT_LISTS_TEXT =
   "You currently don't have any shopping list open.\nPress 'Add' button to create one."
 
-export default function ShoppingLists({ lists }) {
-  console.log('lists', lists)
+export const DATE_FORMAT = 'MM/DD/YYYY HH:mm'
 
+export default function ShoppingLists({ lists, onListPress }) {
   return (
     <View style={styles.container}>
-      {lists.size === 0 ? (
+      {Object.keys(lists).length === 0 ? (
         <Text style={styles.noListsText}>{NO_CURRENT_LISTS_TEXT}</Text>
       ) : (
-        <Text>fdsfsfs</Text>
+        <List>
+          {Object.keys(lists).map(key => (
+            <ListItem
+              key={lists[key].id}
+              title={lists[key].title}
+              titleStyle={styles.listItemTitle}
+              subtitle={`CREATED: ${lists[key].createdAt.format(DATE_FORMAT)}`}
+              subtitleStyle={styles.listItemSubtitle}
+              chevronColor="darkslategrey"
+              onPress={onListPress(lists[key].id)}
+            />
+          ))}
+        </List>
       )}
     </View>
   )
 }
 
 ShoppingLists.propTypes = {
-  lists: ImmutablePropTypes.map.isRequired,
+  lists: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    createdAt: PropTypes.object,
+  }).isRequired,
+  onListPress: PropTypes.func.isRequired,
 }

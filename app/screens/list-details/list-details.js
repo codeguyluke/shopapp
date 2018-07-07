@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import ImmutablePropTypes from 'react-immutable-proptypes'
+import PropTypes from 'prop-types'
 
 export default function ListsDetails({ items }) {
   console.log('list details items', items)
@@ -12,5 +12,5 @@ export default function ListsDetails({ items }) {
 }
 
 ListsDetails.propTypes = {
-  items: ImmutablePropTypes.map.isRequired,
+  items: PropTypes.object.isRequired,
 }

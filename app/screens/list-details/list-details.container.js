@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Map } from 'immutable'
-import ImmutablePropTypes from 'react-immutable-proptypes'
+import get from 'lodash/get'
 
 import shoppingListsState from '../../state/shopping-lists'
 import HeaderRight from '../../components/header-right'
@@ -17,16 +16,16 @@ export class ListsDetailsContainer extends Component {
         onPress={() => {
           console.log('rename here')
         }}
-        type="edit"
+        title="Edit"
       />
     ),
   })
 
   static propTypes = {
-    listDetails: ImmutablePropTypes.mapContains({
+    listDetails: PropTypes.shape({
       id: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      items: ImmutablePropTypes.map,
+      title: PropTypes.string.isRequired,
+      items: PropTypes.object.isRequired,
     }).isRequired,
     navigation: PropTypes.shape({
       setParams: PropTypes.func.isRequired,
@@ -35,16 +34,16 @@ export class ListsDetailsContainer extends Component {
 
   componentDidMount() {
     const { listDetails } = this.props
-    this.props.navigation.setParams({ title: listDetails.get('title') })
+    this.props.navigation.setParams({ title: listDetails.title })
   }
 
   render() {
-    return <ListDetails items={Map({})} />
+    return <ListDetails items={this.props.listDetails.items} />
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  listDetails: state.getIn([shoppingListsState.STORE_NAME, `${ownProps.navigation.getParam('listId')}`]),
+  listDetails: get(state[shoppingListsState.STORE_NAME], `${ownProps.navigation.getParam('listId')}`),
 })
 
 export default connect(mapStateToProps)(ListsDetailsContainer)

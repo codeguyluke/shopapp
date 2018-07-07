@@ -1,5 +1,4 @@
-import { createStore } from 'redux'
-import { combineReducers } from 'redux-immutable'
+import { createStore, combineReducers } from 'redux'
 import shoppingListsState from './shopping-lists'
 
 const rootReducer = combineReducers({
