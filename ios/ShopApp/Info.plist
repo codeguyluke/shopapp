@@ -64,6 +64,11 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Hind-Bold.ttf</string>
+		<string>Hind-Light.ttf</string>
+		<string>Hind-Medium.ttf</string>
+		<string>Hind-Regular.ttf</string>
+		<string>Hind-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

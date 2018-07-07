@@ -6,7 +6,12 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "lint": "eslint ./",
-    "pretty": "prettier --config package.json --write \"./*.js\""
+    "pretty": "prettier --config package.json --write \"./app/**/*.js\""
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "dependencies": {
     "immutable": "^3.8.2",
