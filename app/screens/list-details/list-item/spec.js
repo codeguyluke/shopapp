@@ -39,7 +39,7 @@ describe('ListItem', () => {
     expect(onUpdateSpy).toHaveBeenCalledWith({ id: 'abc', name: 'test name' })
   })
 
-  it("deletes item", () => {
+  it('deletes item', () => {
     const onDeleteSpy = jest.fn()
     const wrapper = shallow(React.cloneElement(component, { onDelete: onDeleteSpy }))
     wrapper.find('Button').simulate('press')

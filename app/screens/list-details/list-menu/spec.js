@@ -30,7 +30,7 @@ describe('ListMenu', () => {
     const onTitleChangeSpy = jest.fn()
     const wrapper = shallow(React.cloneElement(component, { onTitleChange: onTitleChangeSpy }))
     wrapper.setState({ showModal: true })
-    
+
     wrapper.find('FormInput').simulate('changeText', 'test title')
     expect(onTitleChangeSpy).toHaveBeenCalledTimes(1)
     expect(onTitleChangeSpy).toHaveBeenCalledWith('test title')
@@ -40,8 +40,11 @@ describe('ListMenu', () => {
     const onArchivePressSpy = jest.fn()
     const wrapper = shallow(React.cloneElement(component, { onArchivePress: onArchivePressSpy }))
     wrapper.setState({ showModal: true })
-    
-    wrapper.find('Button').at(1).simulate('press')
+
+    wrapper
+      .find('Button')
+      .at(1)
+      .simulate('press')
     expect(onArchivePressSpy).toHaveBeenCalledTimes(1)
   })
 
