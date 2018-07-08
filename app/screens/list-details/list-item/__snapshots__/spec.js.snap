@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem matches snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "borderBottomWidth": 1,
+      "borderColor": "lightgrey",
+      "flex": 1,
+      "flexDirection": "row",
+      "padding": 8,
+    }
+  }
+>
+  <CheckBox
+    center={false}
+    checked={true}
+    checkedColor="green"
+    checkedIcon="check-square-o"
+    containerStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+        "margin": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "padding": 0,
+        "width": 32,
+      }
+    }
+    disabled={false}
+    iconRight={false}
+    right={false}
+    size={24}
+    uncheckedColor="#bfbfbf"
+    uncheckedIcon="square-o"
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCorrect={false}
+    editable={true}
+    key="abc"
+    onChangeText={[Function]}
+    opacity={1}
+    placeholder="Shopping item"
+    style={
+      Object {
+        "color": "midnightblue",
+        "flex": 1,
+        "fontFamily": "Hind-Medium",
+        "fontSize": 16,
+        "paddingHorizontal": 8,
+        "paddingVertical": 8,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value="Item"
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "padding": 8,
+        "paddingRight": 0,
+      }
+    }
+    containerViewStyle={
+      Object {
+        "height": "100%",
+        "marginLeft": 0,
+        "marginRight": 0,
+        "paddingLeft": 16,
+        "paddingRight": 0,
+      }
+    }
+    icon={
+      Object {
+        "color": "crimson",
+        "name": "remove-circle",
+        "size": 24,
+      }
+    }
+  />
+</Component>
+`;
+
+exports[`ListItem matches snapshot when archived 1`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "borderBottomWidth": 1,
+      "borderColor": "lightgrey",
+      "flex": 1,
+      "flexDirection": "row",
+      "padding": 8,
+    }
+  }
+>
+  <CheckBox
+    center={false}
+    checked={true}
+    checkedColor="lightgrey"
+    checkedIcon="check-square-o"
+    containerStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+        "margin": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "padding": 0,
+        "width": 32,
+      }
+    }
+    disabled={true}
+    iconRight={false}
+    right={false}
+    size={24}
+    uncheckedColor="#bfbfbf"
+    uncheckedIcon="square-o"
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCorrect={false}
+    editable={false}
+    key="abc"
+    onChangeText={[Function]}
+    opacity={0.6}
+    placeholder="Shopping item"
+    style={
+      Object {
+        "color": "midnightblue",
+        "flex": 1,
+        "fontFamily": "Hind-Medium",
+        "fontSize": 16,
+        "paddingHorizontal": 8,
+        "paddingVertical": 8,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value="Item"
+  />
+</Component>
+`;
