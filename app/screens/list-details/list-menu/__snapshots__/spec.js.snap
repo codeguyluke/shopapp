@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListMenu matches snapshot 1`] = `
+<Component
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <withAnimatable(Component)
+    animation="fadeIn"
+    delay={0}
+    direction="normal"
+    duration={200}
+    iterationCount={1}
+    iterationDelay={0}
+    onAnimationBegin={[Function]}
+    onAnimationEnd={[Function]}
+    onTransitionBegin={[Function]}
+    onTransitionEnd={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+    useNativeDriver={false}
+  >
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </TouchableWithoutFeedback>
+  </withAnimatable(Component)>
+</Component>
+`;
+
+exports[`ListMenu matches snapshot when archived 1`] = `
+<Component
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <withAnimatable(Component)
+    animation="fadeIn"
+    delay={0}
+    direction="normal"
+    duration={200}
+    iterationCount={1}
+    iterationDelay={0}
+    onAnimationBegin={[Function]}
+    onAnimationEnd={[Function]}
+    onTransitionBegin={[Function]}
+    onTransitionEnd={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+    useNativeDriver={false}
+  >
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </TouchableWithoutFeedback>
+  </withAnimatable(Component)>
+  <withAnimatable(Component)
+    animation="bounceInUp"
+    delay={0}
+    direction="normal"
+    iterationCount={1}
+    iterationDelay={0}
+    onAnimationBegin={[Function]}
+    onAnimationEnd={[Function]}
+    onTransitionBegin={[Function]}
+    onTransitionEnd={[Function]}
+    style={
+      Object {
+        "bottom": 0,
+        "height": "80%",
+        "left": 16,
+        "position": "absolute",
+        "right": 16,
+      }
+    }
+    useNativeDriver={false}
+  >
+    <Button
+      buttonStyle={
+        Object {
+          "alignSelf": "flex-end",
+          "backgroundColor": "white",
+          "height": 40,
+          "marginBottom": 16,
+          "padding": 0,
+          "paddingLeft": 4,
+          "paddingRight": 0,
+          "width": 40,
+        }
+      }
+      containerViewStyle={
+        Object {
+          "marginRight": 0,
+        }
+      }
+      icon={
+        Object {
+          "color": "darkslategrey",
+          "name": "close",
+          "size": 32,
+        }
+      }
+      onPress={[Function]}
+      rounded={true}
+    />
+    <KeyboardAwareScrollView
+      contentContainerStyle={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 4,
+          "flex": 1,
+          "padding": 24,
+        }
+      }
+      enableAutomaticScroll={true}
+      enableResetScrollToCoords={true}
+      extraHeight={75}
+      extraScrollHeight={0}
+      keyboardOpeningTime={250}
+      viewIsInsideTabBar={false}
+    >
+      <Button
+        backgroundColor="midnightblue"
+        buttonStyle={
+          Object {
+            "marginTop": 32,
+          }
+        }
+        onPress={[Function]}
+        rounded={true}
+        textStyle={
+          Object {
+            "fontFamily": "Hind-Medium",
+          }
+        }
+        title="Unarchive list"
+      />
+    </KeyboardAwareScrollView>
+  </withAnimatable(Component)>
+</Component>
+`;
