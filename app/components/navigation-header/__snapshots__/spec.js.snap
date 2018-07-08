@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationHeader matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#476DC5",
+        "borderBottomColor": "#f2f2f2",
+        "borderBottomWidth": 1,
+        "height": 70,
+        "padding": 15,
+      },
+      undefined,
+      Object {
+        "backgroundColor": "whitesmoke",
+        "height": 96,
+        "justifyContent": "center",
+        "paddingTop": 40,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+        Object {
+          "alignItems": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          false,
+          false,
+          false,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "midnightblue",
+              "fontSize": 40,
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ],
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+    <Text
+      numberOfLines={1}
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Object {
+            "color": "midnightblue",
+            "fontFamily": "Hind-SemiBold",
+            "fontSize": 18,
+            "paddingTop": 8,
+          },
+        ]
+      }
+    >
+      Test title
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          false,
+          false,
+          false,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "midnightblue",
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ],
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
