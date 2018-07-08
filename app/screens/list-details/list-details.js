@@ -6,7 +6,13 @@ import PropTypes from 'prop-types'
 import Item from './list-item'
 import styles from './list-details.styles'
 
-export default function ListsDetails({ items, onAddItem, onUpdateItem, onToggleItem, onDeleteItem }) {
+export default function ListsDetails({
+  items,
+  onAddItem,
+  onUpdateItem,
+  onToggleItem,
+  onDeleteItem,
+}) {
   return (
     <KeyboardAwareScrollView style={styles.container}>
       {Object.keys(items).length !== 0 && (

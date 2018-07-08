@@ -8,11 +8,18 @@ import shoppingListsState from '../../state/shopping-lists'
 import Header from '../../components/navigation-header'
 import ShoppingLists, { DATE_FORMAT } from './shopping-lists'
 
+const CURRENT_LISTS_TITLE = 'Current shopping lists'
+const ARCHIVED_LISTS_TITLE = 'Archived shopping lists'
+
 export class ShoppingListsContainer extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Header
-        title="Current shopping lists"
+        title={
+          navigation.state && navigation.state.params && navigation.state.params.archived
+            ? ARCHIVED_LISTS_TITLE
+            : CURRENT_LISTS_TITLE
+        }
         onRightPress={() => {
           const listId = navigation.state.params.onCreateList()
           navigation.navigate('Details', { listId })
@@ -29,11 +36,17 @@ export class ShoppingListsContainer extends Component {
       setParams: PropTypes.func.isRequired,
       navigate: PropTypes.func.isRequired,
     }).isRequired,
+    screenProps: PropTypes.shape({
+      archived: PropTypes.bool.isRequired,
+    }).isRequired,
   }
 
   componentDidMount() {
-    const { onCreateList } = this.props
-    this.props.navigation.setParams({ onCreateList })
+    const {
+      onCreateList,
+      screenProps: { archived },
+    } = this.props
+    this.props.navigation.setParams({ onCreateList, archived })
   }
 
   handleListPress = listId => () => {
@@ -42,12 +55,23 @@ export class ShoppingListsContainer extends Component {
   }
 
   render() {
-    return <ShoppingLists lists={this.props.lists} onListPress={this.handleListPress} />
+    const {
+      screenProps: { archived },
+    } = this.props
+    return (
+      <ShoppingLists
+        lists={this.props.lists}
+        onListPress={this.handleListPress}
+        archived={archived}
+      />
+    )
   }
 }
 
-const mapStateToProps = state => ({
-  lists: state[shoppingListsState.STORE_NAME],
+const mapStateToProps = (state, { screenProps: { archived } }) => ({
+  lists: archived
+    ? shoppingListsState.selectors.selectArchivedLists(state)
+    : shoppingListsState.selectors.selectCurrentLists(state),
 })
 
 const mapDispatchToProps = dispatch => ({

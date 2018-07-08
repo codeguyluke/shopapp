@@ -1,19 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import { Icon } from 'react-native-elements'
+import PropTypes from 'prop-types'
 
 import ShoppingListsScreen from './screens/shopping-lists/shopping-lists.container'
 import ListDetailsScreen from './screens/list-details/list-details.container'
 
-const CurrentListsStack = createStackNavigator({
+const ShoppingListsStack = createStackNavigator({
   List: ShoppingListsScreen,
   Details: ListDetailsScreen,
 })
 
-const ArchivedListsStack = createStackNavigator({
-  List: ShoppingListsScreen,
-  Details: ListDetailsScreen,
-})
+class CurrentListsScreen extends Component {
+  static router = ShoppingListsStack.router
+
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+  }
+
+  render() {
+    return (
+      <ShoppingListsStack navigation={this.props.navigation} screenProps={{ archived: false }} />
+    )
+  }
+}
+
+class ArchivedListsScreen extends Component {
+  static router = ShoppingListsStack.router
+
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+  }
+
+  render() {
+    return (
+      <ShoppingListsStack navigation={this.props.navigation} screenProps={{ archived: true }} />
+    )
+  }
+}
 
 const tabNavigatorNavigationOptions = ({ navigation }) => ({
   tabBarIcon: ({ tintColor }) => {
@@ -25,8 +49,8 @@ const tabNavigatorNavigationOptions = ({ navigation }) => ({
 
 export default createBottomTabNavigator(
   {
-    CurrentLists: CurrentListsStack,
-    ArchivedLists: ArchivedListsStack,
+    CurrentLists: CurrentListsScreen,
+    ArchivedLists: ArchivedListsScreen,
   },
   {
     navigationOptions: tabNavigatorNavigationOptions,

@@ -12,6 +12,10 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: 'darkslategrey',
   },
+  listContainer: {
+    marginTop: 0,
+    borderColor: 'lightgrey',
+  },
   listItemTitle: {
     fontFamily: 'Hind',
     fontSize: 18,
