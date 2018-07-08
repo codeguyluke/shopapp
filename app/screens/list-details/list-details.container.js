@@ -67,7 +67,7 @@ export class ListsDetailsContainer extends Component {
           onToggleItem={onToggleItem}
           onDeleteItem={onDeleteItem}
         />
-        <ListMenu show={showMenu} listTitle={listDetails.title} />
+        <ListMenu show={showMenu} archived={listDetails.archived} onClose={this.closeMenu} onArchivePress={() => {}} onTitleChange={() => {}} listTitle={listDetails.title} />
       </React.Fragment>
     )
   }

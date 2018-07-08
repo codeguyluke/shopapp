@@ -1,27 +1,102 @@
 import React, { Component } from 'react'
-import { View, Modal } from 'react-native'
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { View, Modal, TouchableWithoutFeedback } from 'react-native'
+import * as Animatable from 'react-native-animatable'
+import { Button, FormLabel, FormInput } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 import styles from './styles'
 
+export const FADE_DURATION = 200
+
 export default class ListMenu extends Component {
   static propTypes = {
     show: PropTypes.bool.isRequired,
+    archived: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onArchivePress: PropTypes.func.isRequired,
+    onTitleChange: PropTypes.func.isRequired,
     listTitle: PropTypes.string.isRequired,
   }
 
-  render() {
-    const { show, listTitle } = this.props
+  state = {
+    showModal: false,
+  }
 
-    return (
-      <Modal animationType="slide" transparent={false} visible={show}>
-        <View style={styles.container}>
-          <FormLabel>LIST TITLE</FormLabel>
-          <FormInput onChangeText={() => {}} value={listTitle} />
-          <FormValidationMessage>Error message</FormValidationMessage>
-        </View>
+  setBlurRef = ref => {
+    this.blurRef = ref
+  }
+
+  setViewRef = ref => {
+    this.viewRef = ref
+  }
+
+  toggleModal = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }))
+  }
+
+  animateOut = () => {
+    const { onClose } = this.props
+
+    if (!this.viewRef) return
+    this.viewRef.bounceOutDown().then(() => {
+      this.toggleModal()
+      if (this.blurRef) {
+        this.blurRef.fadeOut(FADE_DURATION).then(onClose)
+      } else {
+        onClose()
+      }
+    })
+  }
+
+  render() {
+    const { show, listTitle, archived, onArchivePress, onTitleChange } = this.props
+    const { showModal } = this.state
+
+    const archiveButtonTitle = archived ? 'Unarchive list' : 'Archive list'
+    const archiveButtonBackgroundColor = archived ? 'midnightblue' : 'crimson'
+    return show ? (
+      <Modal animationType="none" transparent visible>
+        <Animatable.View
+          ref={this.setBlurRef}
+          animation="fadeIn"
+          onAnimationEnd={this.toggleModal}
+          duration={FADE_DURATION}
+          style={styles.blurContainer}
+        >
+          <TouchableWithoutFeedback onPress={this.animateOut}>
+            <View style={styles.blurContent} />
+          </TouchableWithoutFeedback>
+        </Animatable.View>
+        {showModal && (
+          <Animatable.View
+            ref={this.setViewRef}
+            animation="bounceInUp"
+            style={styles.modalContainer}
+          >
+            <Button
+              rounded
+              onPress={this.animateOut}
+              icon={{ name: 'close', size: 32, color: 'darkslategrey' }}
+              containerViewStyle={styles.closeButtonContainer}
+              buttonStyle={styles.closeButton}
+            />
+            <View style={styles.modalContent}>
+              <FormLabel labelStyle={styles.formLabel} fontFamily="Hind-SemiBold">
+                LIST NAME
+              </FormLabel>
+              <FormInput inputStyle={styles.formInput} placeholder="Shopping list" onChangeText={onTitleChange} value={listTitle} />
+              <Button
+                rounded
+                onPress={onArchivePress}
+                title={archiveButtonTitle}
+                backgroundColor={archiveButtonBackgroundColor}
+                buttonStyle={styles.archiveButton}
+                textStyle={styles.archiveButtonText}
+              />
+            </View>
+          </Animatable.View>
+        )}
       </Modal>
-    )
+    ) : null
   }
 }
