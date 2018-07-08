@@ -15,13 +15,7 @@ jest.mock('react-native-uuid', () => ({
 
 describe('ListDetails', () => {
   const listsMock = [{ id: 'abc', title: 'list title', createdAt: '2018-07-10T11:22:33.444Z' }]
-  const component = (
-    <ShoppingLists
-      lists={listsMock}
-      onListPress={noop}
-      archived={false}
-    />
-  )
+  const component = <ShoppingLists lists={listsMock} onListPress={noop} archived={false} />
 
   it('matches snapshot', () => {
     const wrapper = shallow(component)
@@ -77,14 +71,22 @@ describe('ShoppingListsContainer', () => {
 
     it('matches snapshot when archived', () => {
       const wrapper = shallow(
-        <ShoppingListsContainerWithConnect store={store} screenProps={{ archived: true }} navigation={navigationMock} />
+        <ShoppingListsContainerWithConnect
+          store={store}
+          screenProps={{ archived: true }}
+          navigation={navigationMock}
+        />
       )
       expect(wrapper).toMatchSnapshot()
     })
 
     it('matches snapshot when not archived', () => {
       const wrapper = shallow(
-        <ShoppingListsContainerWithConnect store={store} screenProps={{ archived: false }} navigation={navigationMock} />
+        <ShoppingListsContainerWithConnect
+          store={store}
+          screenProps={{ archived: false }}
+          navigation={navigationMock}
+        />
       )
       expect(wrapper).toMatchSnapshot()
     })
@@ -98,7 +100,7 @@ describe('ShoppingListsContainer', () => {
         createdAt: '2018-07-10T11:22:33.444Z',
       },
     }
-      
+
     const component = (
       <ShoppingListsContainer
         lists={listsMock}
