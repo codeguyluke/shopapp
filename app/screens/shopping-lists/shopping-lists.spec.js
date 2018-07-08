@@ -75,7 +75,7 @@ describe('ShoppingListsContainer', () => {
       },
     })
 
-    it('matches snapshot when not archived', () => {
+    it('matches snapshot when archived', () => {
       const wrapper = shallow(
         <ShoppingListsContainerWithConnect store={store} screenProps={{ archived: true }} navigation={navigationMock} />
       )
@@ -150,15 +150,6 @@ describe('ShoppingListsContainer', () => {
       const instance = shallow(React.cloneElement(component, { onCreateList })).instance()
       instance.props.onCreateList()
       expect(dispatch).toHaveBeenCalledTimes(1)
-      // expect(dispatch).toHaveBeenCalledWith(
-      //   shoppingListsState.actions.createList({
-      //     id: 'abc',
-      //     createdAt: '2018-07-10T11:22:33.444Z',
-      //     title: '07/10/2018, 11:22',
-      //     items: {},
-      //     archived: false,
-      //   })
-      // )
     })
   })
 })

@@ -165,7 +165,7 @@ exports[`ListDetails matches snapshot when no lists and archived 1`] = `
 </ScrollView>
 `;
 
-exports[`ShoppingListsContainer connected matches snapshot when not archived 1`] = `
+exports[`ShoppingListsContainer connected matches snapshot when archived 1`] = `
 <ShoppingListsContainer
   lists={
     Object {
@@ -222,7 +222,7 @@ exports[`ShoppingListsContainer connected matches snapshot when not archived 1`]
 />
 `;
 
-exports[`ShoppingListsContainer connected matches snapshot when not archived 2`] = `
+exports[`ShoppingListsContainer connected matches snapshot when not archived 1`] = `
 <ShoppingListsContainer
   lists={
     Object {

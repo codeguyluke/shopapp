@@ -165,15 +165,6 @@ describe('ListsDetailsContainer', () => {
       const instance = shallow(React.cloneElement(component, { onAddItem })).instance()
       instance.props.onAddItem()
       expect(dispatch).toHaveBeenCalledTimes(1)
-      // expect(dispatch).toHaveBeenCalledWith(
-      //   shoppingListsState.actions.addItem({
-      //     listId: 'abc',
-      //     id: 'def',
-      //     name: '',
-      //     checked: false,
-      //     createdAt: '2018-07-10T11:22:33.444Z',
-      //   })
-      // )
     })
 
     it('maps updateItem action to onUpdateItem prop correctly', () => {
