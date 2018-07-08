@@ -20,6 +20,7 @@ export default function ListItem({ item, onUpdate, onToggle, onDelete }) {
         style={styles.textInput}
         onChangeText={value => onUpdate({ id: item.id, name: value })}
         value={item.name}
+        autoCorrect={false}
       />
       <Button
         onPress={onDelete({ id: item.id })}

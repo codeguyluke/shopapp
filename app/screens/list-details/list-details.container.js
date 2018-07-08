@@ -31,6 +31,8 @@ export class ListsDetailsContainer extends Component {
     navigation: PropTypes.shape({
       setParams: PropTypes.func.isRequired,
     }).isRequired,
+    onToggleArchive: PropTypes.func.isRequired,
+    onRenameList: PropTypes.func.isRequired,
     onAddItem: PropTypes.func.isRequired,
     onUpdateItem: PropTypes.func.isRequired,
     onToggleItem: PropTypes.func.isRequired,
@@ -46,6 +48,14 @@ export class ListsDetailsContainer extends Component {
     this.props.navigation.setParams({ title: listDetails.title, openMenu: this.openMenu })
   }
 
+  componentDidUpdate(prevProps) {
+    const { listDetails } = this.props
+    const hasSameTitle = prevProps.listDetails.title === listDetails.title
+    if (!hasSameTitle) {
+      this.props.navigation.setParams({ title: listDetails.title })
+    }
+  }
+
   closeMenu = () => {
     this.setState({ showMenu: false })
   }
@@ -55,7 +65,15 @@ export class ListsDetailsContainer extends Component {
   }
 
   render() {
-    const { listDetails, onAddItem, onUpdateItem, onToggleItem, onDeleteItem } = this.props
+    const {
+      listDetails,
+      onToggleArchive,
+      onRenameList,
+      onAddItem,
+      onUpdateItem,
+      onToggleItem,
+      onDeleteItem,
+    } = this.props
     const { showMenu } = this.state
 
     return (
@@ -67,7 +85,14 @@ export class ListsDetailsContainer extends Component {
           onToggleItem={onToggleItem}
           onDeleteItem={onDeleteItem}
         />
-        <ListMenu show={showMenu} archived={listDetails.archived} onClose={this.closeMenu} onArchivePress={() => {}} onTitleChange={() => {}} listTitle={listDetails.title} />
+        <ListMenu
+          show={showMenu}
+          archived={listDetails.archived}
+          onClose={this.closeMenu}
+          onArchivePress={onToggleArchive}
+          onTitleChange={onRenameList}
+          listTitle={listDetails.title}
+        />
       </React.Fragment>
     )
   }
@@ -81,6 +106,14 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  onToggleArchive: () =>
+    dispatch(
+      shoppingListsState.actions.toggleArchive({ id: ownProps.navigation.getParam('listId') })
+    ),
+  onRenameList: title =>
+    dispatch(
+      shoppingListsState.actions.renameList({ id: ownProps.navigation.getParam('listId'), title })
+    ),
   onAddItem: () =>
     dispatch(
       shoppingListsState.actions.addItem({

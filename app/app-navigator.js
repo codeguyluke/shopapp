@@ -40,7 +40,7 @@ class ArchivedListsScreen extends Component {
 }
 
 const tabNavigatorNavigationOptions = ({ navigation }) => ({
-  tabBarIcon: ({ tintColor }) => {
+  tabBarIcon: ({ tintColor }: { tintColor: string }) => {
     const { routeName } = navigation.state
     const iconName = routeName === 'CurrentLists' ? 'ios-list-outline' : 'ios-archive'
     return <Icon name={iconName} type="ionicon" size={40} color={tintColor} />

@@ -2,14 +2,18 @@
  * Types definitions
  */
 
-const CREATE_SHOPPING_LIST = 'CREATE_SHOPPING_LIST'
+const CREATE_LIST = 'CREATE_LIST'
+const TOGGLE_ARCHIVE = 'TOGGLE_ARCHIVE'
+const RENAME_LIST = 'RENAME_LIST'
 const ADD_ITEM = 'ADD_ITEM'
 const UPDATE_ITEM = 'UPDATE_ITEM'
 const TOGGLE_ITEM = 'TOGGLE_ITEM'
 const DELETE_ITEM = 'DELETE_ITEM'
 
 export const types = {
-  CREATE_SHOPPING_LIST,
+  CREATE_LIST,
+  TOGGLE_ARCHIVE,
+  RENAME_LIST,
   ADD_ITEM,
   UPDATE_ITEM,
   TOGGLE_ITEM,
@@ -21,8 +25,18 @@ export const types = {
  */
 
 const createList = ({ id, createdAt, title, items, archived }) => ({
-  type: CREATE_SHOPPING_LIST,
+  type: CREATE_LIST,
   payload: { id, createdAt, title, items, archived },
+})
+
+const toggleArchive = ({ id }) => ({
+  type: TOGGLE_ARCHIVE,
+  payload: { id },
+})
+
+const renameList = ({ id, title }) => ({
+  type: RENAME_LIST,
+  payload: { id, title },
 })
 
 const addItem = ({ listId, id, name, checked }) => ({
@@ -47,6 +61,8 @@ const deleteItem = ({ listId, id }) => ({
 
 export default {
   createList,
+  toggleArchive,
+  renameList,
   addItem,
   updateItem,
   toggleItem,

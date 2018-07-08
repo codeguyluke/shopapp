@@ -9,6 +9,28 @@ const createListHandler = (state, { payload }) => ({
   [payload.id]: payload,
 })
 
+const toggleArchiveHandler = (state, { payload }) => {
+  const newList = {
+    ...state[payload.id],
+    archived: !state[payload.id].archived,
+  }
+  return {
+    ...state,
+    [payload.id]: newList,
+  }
+}
+
+const renameListHandler = (state, { payload: { id, title } }) => {
+  const newList = {
+    ...state[id],
+    title,
+  }
+  return {
+    ...state,
+    [id]: newList,
+  }
+}
+
 const addItemHandler = (state, { payload }) => {
   const shoppingList = state[payload.listId]
   const newItemsList = {
@@ -87,10 +109,13 @@ export const STORE_NAME = 'shoppingLists'
 
 export const initialState = {}
 export default function shoppingListsReducer(state = initialState, action = { type: '' }) {
-  console.log('reducer', state, action)
   switch (action.type) {
-    case types.CREATE_SHOPPING_LIST:
+    case types.CREATE_LIST:
       return createListHandler(state, action)
+    case types.TOGGLE_ARCHIVE:
+      return toggleArchiveHandler(state, action)
+    case types.RENAME_LIST:
+      return renameListHandler(state, action)
     case types.ADD_ITEM:
       return addItemHandler(state, action)
     case types.UPDATE_ITEM:

@@ -84,7 +84,13 @@ export default class ListMenu extends Component {
               <FormLabel labelStyle={styles.formLabel} fontFamily="Hind-SemiBold">
                 LIST NAME
               </FormLabel>
-              <FormInput inputStyle={styles.formInput} placeholder="Shopping list" onChangeText={onTitleChange} value={listTitle} />
+              <FormInput
+                inputStyle={styles.formInput}
+                placeholder="Shopping list"
+                onChangeText={onTitleChange}
+                value={listTitle}
+                autoCorrect={false}
+              />
               <Button
                 rounded
                 onPress={onArchivePress}
