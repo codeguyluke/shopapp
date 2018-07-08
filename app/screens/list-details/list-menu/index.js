@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Modal, TouchableWithoutFeedback } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import * as Animatable from 'react-native-animatable'
 import { Button, FormLabel, FormInput } from 'react-native-elements'
 import PropTypes from 'prop-types'
@@ -80,7 +81,7 @@ export default class ListMenu extends Component {
               containerViewStyle={styles.closeButtonContainer}
               buttonStyle={styles.closeButton}
             />
-            <View style={styles.modalContent}>
+            <KeyboardAwareScrollView contentContainerStyle={styles.modalContent}>
               {!archived ? (
                 <React.Fragment>
                   <FormLabel labelStyle={styles.formLabel} fontFamily="Hind-SemiBold">
@@ -103,7 +104,7 @@ export default class ListMenu extends Component {
                 buttonStyle={styles.archiveButton}
                 textStyle={styles.archiveButtonText}
               />
-            </View>
+            </KeyboardAwareScrollView>
           </Animatable.View>
         )}
       </Modal>
