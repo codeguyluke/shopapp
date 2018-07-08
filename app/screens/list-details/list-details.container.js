@@ -6,6 +6,7 @@ import get from 'lodash/get'
 
 import shoppingListsState from '../../state/shopping-lists'
 import Header from '../../components/navigation-header'
+import ListMenu from './list-menu'
 import ListDetails from './list-details'
 
 export class ListsDetailsContainer extends Component {
@@ -13,9 +14,7 @@ export class ListsDetailsContainer extends Component {
     header: (
       <Header
         title={navigation.state.params.title}
-        onRightPress={() => {
-          console.log('edit list')
-        }}
+        onRightPress={navigation.state.params.openMenu}
         rightIconName="edit"
         showBack
         onBack={() => navigation.goBack()}
@@ -38,21 +37,38 @@ export class ListsDetailsContainer extends Component {
     onDeleteItem: PropTypes.func.isRequired,
   }
 
+  state = {
+    showMenu: false,
+  }
+
   componentDidMount() {
     const { listDetails } = this.props
-    this.props.navigation.setParams({ title: listDetails.title })
+    this.props.navigation.setParams({ title: listDetails.title, openMenu: this.openMenu })
+  }
+
+  closeMenu = () => {
+    this.setState({ showMenu: false })
+  }
+
+  openMenu = () => {
+    this.setState({ showMenu: true })
   }
 
   render() {
     const { listDetails, onAddItem, onUpdateItem, onToggleItem, onDeleteItem } = this.props
+    const { showMenu } = this.state
+
     return (
-      <ListDetails
-        items={listDetails.items}
-        onAddItem={onAddItem}
-        onUpdateItem={onUpdateItem}
-        onToggleItem={onToggleItem}
-        onDeleteItem={onDeleteItem}
-      />
+      <React.Fragment>
+        <ListDetails
+          items={listDetails.items}
+          onAddItem={onAddItem}
+          onUpdateItem={onUpdateItem}
+          onToggleItem={onToggleItem}
+          onDeleteItem={onDeleteItem}
+        />
+        <ListMenu show={showMenu} listTitle={listDetails.title} />
+      </React.Fragment>
     )
   }
 }

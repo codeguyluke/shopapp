@@ -36,13 +36,14 @@ export default function NavigationHeader({ title, showBack, onBack, rightIconNam
 NavigationHeader.propTypes = {
   title: PropTypes.string,
   rightIconName: PropTypes.string.isRequired,
-  onRightPress: PropTypes.func.isRequired,
+  onRightPress: PropTypes.func,
   showBack: PropTypes.bool,
   onBack: PropTypes.func,
 }
 
 NavigationHeader.defaultProps = {
   title: '',
+  onRightPress: noop,
   showBack: false,
   onBack: noop,
 }

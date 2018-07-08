@@ -15,19 +15,21 @@ export const DATE_FORMAT = 'MM/DD/YYYY, HH:mm'
 export default function ShoppingLists({ lists, onListPress, archived }) {
   return (
     <ScrollView style={styles.container}>
-      {Object.keys(lists).length === 0 ? (
-        <Text style={styles.noListsText}>{archived ? NO_ARCHIVED_LISTS_TEXT : NO_CURRENT_LISTS_TEXT}</Text>
+      {lists.length === 0 ? (
+        <Text style={styles.noListsText}>
+          {archived ? NO_ARCHIVED_LISTS_TEXT : NO_CURRENT_LISTS_TEXT}
+        </Text>
       ) : (
         <List containerStyle={styles.listContainer}>
-          {Object.keys(lists).map(key => (
+          {lists.map(list => (
             <ListItem
-              key={lists[key].id}
-              title={lists[key].title}
+              key={list.id}
+              title={list.title}
               titleStyle={styles.listItemTitle}
-              subtitle={`CREATED: ${lists[key].createdAt.format(DATE_FORMAT)}`}
+              subtitle={`CREATED: ${list.createdAt.format(DATE_FORMAT)}`}
               subtitleStyle={styles.listItemSubtitle}
               chevronColor="darkslategrey"
-              onPress={onListPress(lists[key].id)}
+              onPress={onListPress(list.id)}
             />
           ))}
         </List>
@@ -37,11 +39,13 @@ export default function ShoppingLists({ lists, onListPress, archived }) {
 }
 
 ShoppingLists.propTypes = {
-  lists: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    createdAt: PropTypes.object,
-  }).isRequired,
+  lists: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      createdAt: PropTypes.object,
+    }).isRequired
+  ).isRequired,
   onListPress: PropTypes.func.isRequired,
   archived: PropTypes.bool.isRequired,
 }

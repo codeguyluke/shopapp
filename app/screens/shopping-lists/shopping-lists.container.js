@@ -54,13 +54,23 @@ export class ShoppingListsContainer extends Component {
     navigation.navigate('Details', { listId })
   }
 
+  sortLists = lists => {
+    const sortedLists = []
+    Object.keys(lists).forEach(key => {
+      sortedLists.push(lists[key])
+    })
+    sortedLists.sort((first, second) => (first.createdAt.isAfter(second.createdAt) ? -1 : 1))
+    return sortedLists
+  }
+
   render() {
     const {
+      lists,
       screenProps: { archived },
     } = this.props
     return (
       <ShoppingLists
-        lists={this.props.lists}
+        lists={this.sortLists(lists)}
         onListPress={this.handleListPress}
         archived={archived}
       />

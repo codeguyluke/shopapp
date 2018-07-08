@@ -22,7 +22,7 @@ const getArchivedLists = allShoppingLists => {
   return archivedLists
 }
 
-const selectCurrentLists = createSelector(selectAllLists, getCurrentLists )
+const selectCurrentLists = createSelector(selectAllLists, getCurrentLists)
 const selectArchivedLists = createSelector(selectAllLists, getArchivedLists)
 
 export default {
