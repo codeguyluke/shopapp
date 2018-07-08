@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import uuid from 'react-native-uuid'
+import moment from 'moment'
 import get from 'lodash/get'
 
 import shoppingListsState from '../../state/shopping-lists'
@@ -64,6 +65,17 @@ export class ListsDetailsContainer extends Component {
     this.setState({ showMenu: true })
   }
 
+  sortItems = items => {
+    const sortedItems = []
+    Object.keys(items).forEach(key => {
+      sortedItems.push(items[key])
+    })
+    sortedItems.sort(
+      (first, second) => (moment(first.createdAt).isBefore(moment(second.createdAt)) ? -1 : 1)
+    )
+    return sortedItems
+  }
+
   render() {
     const {
       listDetails,
@@ -79,7 +91,7 @@ export class ListsDetailsContainer extends Component {
     return (
       <React.Fragment>
         <ListDetails
-          items={listDetails.items}
+          items={this.sortItems(listDetails.items)}
           archived={listDetails.archived}
           onAddItem={onAddItem}
           onUpdateItem={onUpdateItem}
@@ -115,15 +127,18 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(
       shoppingListsState.actions.renameList({ id: ownProps.navigation.getParam('listId'), title })
     ),
-  onAddItem: () =>
+  onAddItem: () => {
+    const createdAt = moment().toISOString()
     dispatch(
       shoppingListsState.actions.addItem({
         listId: ownProps.navigation.getParam('listId'),
         id: uuid.v1(),
         name: '',
         checked: false,
+        createdAt,
       })
-    ),
+    )
+  },
   onUpdateItem: ({ id, name }) =>
     dispatch(
       shoppingListsState.actions.updateItem({

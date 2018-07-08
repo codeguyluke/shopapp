@@ -16,13 +16,13 @@ export default function ListsDetails({
 }) {
   return (
     <KeyboardAwareScrollView style={styles.container}>
-      {Object.keys(items).length !== 0 && (
+      {items.length !== 0 && (
         <List containerStyle={styles.listContainer}>
-          {Object.keys(items).map(key => (
+          {items.map(item => (
             <ListItem
-              key={key}
+              key={item.id}
               component={Item}
-              item={items[key]}
+              item={item}
               archived={archived}
               onUpdate={onUpdateItem}
               onToggle={onToggleItem}
@@ -49,7 +49,7 @@ export default function ListsDetails({
 }
 
 ListsDetails.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
   archived: PropTypes.bool.isRequired,
   onAddItem: PropTypes.func.isRequired,
   onUpdateItem: PropTypes.func.isRequired,

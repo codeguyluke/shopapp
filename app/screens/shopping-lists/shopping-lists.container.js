@@ -59,7 +59,9 @@ export class ShoppingListsContainer extends Component {
     Object.keys(lists).forEach(key => {
       sortedLists.push(lists[key])
     })
-    sortedLists.sort((first, second) => (first.createdAt.isAfter(second.createdAt) ? -1 : 1))
+    sortedLists.sort(
+      (first, second) => (moment(first.createdAt).isAfter(moment(second.createdAt)) ? -1 : 1)
+    )
     return sortedLists
   }
 
@@ -92,7 +94,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(
       shoppingListsState.actions.createList({
         id,
-        createdAt,
+        createdAt: createdAt.toISOString(),
         title,
         items: {},
         archived: false,

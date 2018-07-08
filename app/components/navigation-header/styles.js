@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   outerContainer: {
     backgroundColor: 'whitesmoke',
-    paddingTop: 24,
-    height: 80,
+    paddingTop: 40,
+    height: 96,
     justifyContent: 'center',
   },
   innerContainer: {

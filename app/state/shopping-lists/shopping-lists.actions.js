@@ -39,9 +39,9 @@ const renameList = ({ id, title }) => ({
   payload: { id, title },
 })
 
-const addItem = ({ listId, id, name, checked }) => ({
+const addItem = ({ listId, id, name, checked, createdAt }) => ({
   type: ADD_ITEM,
-  payload: { listId, id, name, checked },
+  payload: { listId, id, name, checked, createdAt },
 })
 
 const updateItem = ({ listId, id, name }) => ({

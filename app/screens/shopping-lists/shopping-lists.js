@@ -2,6 +2,7 @@ import React from 'react'
 import { ScrollView, Text } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 import styles from './shopping-lists.styles'
 
@@ -26,7 +27,7 @@ export default function ShoppingLists({ lists, onListPress, archived }) {
               key={list.id}
               title={list.title}
               titleStyle={styles.listItemTitle}
-              subtitle={`CREATED: ${list.createdAt.format(DATE_FORMAT)}`}
+              subtitle={`CREATED: ${moment(list.createdAt).format(DATE_FORMAT)}`}
               subtitleStyle={styles.listItemSubtitle}
               chevronColor="darkslategrey"
               onPress={onListPress(list.id)}
@@ -43,7 +44,7 @@ ShoppingLists.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
-      createdAt: PropTypes.object,
+      createdAt: PropTypes.string,
     }).isRequired
   ).isRequired,
   onListPress: PropTypes.func.isRequired,
