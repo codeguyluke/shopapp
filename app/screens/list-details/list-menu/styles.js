@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   modalContainer: {
     position: 'absolute',
-    height: '60%',
+    height: '50%',
     left: 16,
     right: 16,
     bottom: 0,
@@ -33,6 +33,7 @@ export default StyleSheet.create({
     padding: 24,
     backgroundColor: 'white',
     borderRadius: 4,
+    justifyContent: 'center',
   },
   formLabel: {
     color: 'darkslategrey',

@@ -81,16 +81,20 @@ export default class ListMenu extends Component {
               buttonStyle={styles.closeButton}
             />
             <View style={styles.modalContent}>
-              <FormLabel labelStyle={styles.formLabel} fontFamily="Hind-SemiBold">
-                LIST NAME
-              </FormLabel>
-              <FormInput
-                inputStyle={styles.formInput}
-                placeholder="Shopping list"
-                onChangeText={onTitleChange}
-                value={listTitle}
-                autoCorrect={false}
-              />
+              {!archived ? (
+                <React.Fragment>
+                  <FormLabel labelStyle={styles.formLabel} fontFamily="Hind-SemiBold">
+                    LIST NAME
+                  </FormLabel>
+                  <FormInput
+                    inputStyle={styles.formInput}
+                    placeholder="Shopping list"
+                    onChangeText={onTitleChange}
+                    value={listTitle}
+                    autoCorrect={false}
+                  />
+                </React.Fragment>
+              ) : null}
               <Button
                 rounded
                 onPress={onArchivePress}

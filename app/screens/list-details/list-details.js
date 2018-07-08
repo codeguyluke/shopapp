@@ -8,6 +8,7 @@ import styles from './list-details.styles'
 
 export default function ListsDetails({
   items,
+  archived,
   onAddItem,
   onUpdateItem,
   onToggleItem,
@@ -22,6 +23,7 @@ export default function ListsDetails({
               key={key}
               component={Item}
               item={items[key]}
+              archived={archived}
               onUpdate={onUpdateItem}
               onToggle={onToggleItem}
               onDelete={onDeleteItem}
@@ -29,23 +31,26 @@ export default function ListsDetails({
           ))}
         </List>
       )}
-      <Button
-        title="Add new item"
-        onPress={onAddItem}
-        fontFamily="Hind-Medium"
-        fontSize={16}
-        color="darkslategrey"
-        icon={{ name: 'add', color: 'darkslategrey', size: 20 }}
-        rounded
-        textStyle={styles.buttonText}
-        buttonStyle={styles.button}
-      />
+      {!archived ? (
+        <Button
+          title="Add new item"
+          onPress={onAddItem}
+          fontFamily="Hind-Medium"
+          fontSize={16}
+          color="darkslategrey"
+          icon={{ name: 'add', color: 'darkslategrey', size: 20 }}
+          rounded
+          textStyle={styles.buttonText}
+          buttonStyle={styles.button}
+        />
+      ) : null}
     </KeyboardAwareScrollView>
   )
 }
 
 ListsDetails.propTypes = {
   items: PropTypes.object.isRequired,
+  archived: PropTypes.bool.isRequired,
   onAddItem: PropTypes.func.isRequired,
   onUpdateItem: PropTypes.func.isRequired,
   onToggleItem: PropTypes.func.isRequired,

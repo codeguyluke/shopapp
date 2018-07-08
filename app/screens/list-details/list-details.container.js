@@ -80,6 +80,7 @@ export class ListsDetailsContainer extends Component {
       <React.Fragment>
         <ListDetails
           items={listDetails.items}
+          archived={listDetails.archived}
           onAddItem={onAddItem}
           onUpdateItem={onUpdateItem}
           onToggleItem={onToggleItem}

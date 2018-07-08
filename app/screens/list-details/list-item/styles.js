@@ -21,6 +21,7 @@ export default StyleSheet.create({
   textInput: {
     flex: 1,
     paddingHorizontal: 8,
+    paddingVertical: 8,
     fontFamily: 'Hind-Medium',
     fontSize: 16,
     color: 'midnightblue',
@@ -35,5 +36,6 @@ export default StyleSheet.create({
   deleteButton: {
     backgroundColor: 'transparent',
     paddingRight: 0,
+    padding: 8,
   },
 })

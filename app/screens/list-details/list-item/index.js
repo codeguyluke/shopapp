@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import styles from './styles'
 
-export default function ListItem({ item, onUpdate, onToggle, onDelete }) {
+export default function ListItem({ item, archived, onUpdate, onToggle, onDelete }) {
   return (
     <View style={styles.container}>
       <CheckBox
@@ -13,21 +13,27 @@ export default function ListItem({ item, onUpdate, onToggle, onDelete }) {
         size={24}
         onPress={onToggle({ id: item.id })}
         containerStyle={styles.checkBoxContainer}
+        disabled={archived}
+        checkedColor={archived ? 'lightgrey' : 'green'}
       />
       <TextInput
         key={item.id}
+        editable={!archived}
         placeholder="Shopping item"
         style={styles.textInput}
         onChangeText={value => onUpdate({ id: item.id, name: value })}
         value={item.name}
         autoCorrect={false}
+        opacity={archived ? 0.6 : 1}
       />
-      <Button
-        onPress={onDelete({ id: item.id })}
-        icon={{ name: 'remove-circle', color: 'crimson', size: 24 }}
-        containerViewStyle={styles.deleteButtonContainer}
-        buttonStyle={styles.deleteButton}
-      />
+      {!archived && (
+        <Button
+          onPress={onDelete({ id: item.id })}
+          icon={{ name: 'remove-circle', color: 'crimson', size: 24 }}
+          containerViewStyle={styles.deleteButtonContainer}
+          buttonStyle={styles.deleteButton}
+        />
+      )}
     </View>
   )
 }
@@ -38,6 +44,7 @@ ListItem.propTypes = {
     name: PropTypes.string,
     checked: PropTypes.bool,
   }).isRequired,
+  archived: PropTypes.bool.isRequired,
   onUpdate: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
