@@ -49,7 +49,11 @@ export default function ListsDetails({
 }
 
 ListsDetails.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+    })
+  ).isRequired,
   archived: PropTypes.bool.isRequired,
   onAddItem: PropTypes.func.isRequired,
   onUpdateItem: PropTypes.func.isRequired,

@@ -86,7 +86,7 @@ const mapStateToProps = (state, { screenProps: { archived } }) => ({
     : shoppingListsState.selectors.selectCurrentLists(state),
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onCreateList: () => {
     const id = uuid.v1()
     const createdAt = moment()

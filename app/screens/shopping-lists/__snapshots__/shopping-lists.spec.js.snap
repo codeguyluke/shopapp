@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListDetails matches snapshot 1`] = `
+<ScrollView
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <List
+    containerStyle={
+      Object {
+        "borderColor": "lightgrey",
+        "marginTop": 0,
+      }
+    }
+  >
+    <ListItem
+      chevronColor="darkslategrey"
+      disabled={false}
+      hideChevron={false}
+      key="abc"
+      leftIconUnderlayColor="white"
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitle="CREATED: 07/10/2018, 13:22"
+      subtitleNumberOfLines={1}
+      subtitleStyle={
+        Object {
+          "color": "darkslategrey",
+          "fontFamily": "Hind-SemiBold",
+          "fontSize": 12,
+        }
+      }
+      switchButton={false}
+      textInputEditable={true}
+      title="list title"
+      titleNumberOfLines={1}
+      titleStyle={
+        Object {
+          "color": "midnightblue",
+          "fontFamily": "Hind",
+          "fontSize": 18,
+        }
+      }
+      underlayColor="white"
+    />
+  </List>
+</ScrollView>
+`;
+
+exports[`ListDetails matches snapshot when archived 1`] = `
+<ScrollView
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <List
+    containerStyle={
+      Object {
+        "borderColor": "lightgrey",
+        "marginTop": 0,
+      }
+    }
+  >
+    <ListItem
+      chevronColor="darkslategrey"
+      disabled={false}
+      hideChevron={false}
+      key="abc"
+      leftIconUnderlayColor="white"
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitle="CREATED: 07/10/2018, 13:22"
+      subtitleNumberOfLines={1}
+      subtitleStyle={
+        Object {
+          "color": "darkslategrey",
+          "fontFamily": "Hind-SemiBold",
+          "fontSize": 12,
+        }
+      }
+      switchButton={false}
+      textInputEditable={true}
+      title="list title"
+      titleNumberOfLines={1}
+      titleStyle={
+        Object {
+          "color": "midnightblue",
+          "fontFamily": "Hind",
+          "fontSize": 18,
+        }
+      }
+      underlayColor="white"
+    />
+  </List>
+</ScrollView>
+`;
+
+exports[`ListDetails matches snapshot when no lists 1`] = `
+<ScrollView
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "color": "darkslategrey",
+        "fontFamily": "Hind-SemiBold",
+        "fontSize": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    You currently don't have any shopping list open.
+Press 'Plus' icon above in order to create one.
+  </Component>
+</ScrollView>
+`;
+
+exports[`ListDetails matches snapshot when no lists and archived 1`] = `
+<ScrollView
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 16,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "color": "darkslategrey",
+        "fontFamily": "Hind-SemiBold",
+        "fontSize": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    You don't have any archived shopping list.
+  </Component>
+</ScrollView>
+`;
+
+exports[`ShoppingListsContainer connected matches snapshot when not archived 1`] = `
+<ShoppingListsContainer
+  lists={
+    Object {
+      "def": Object {
+        "archived": true,
+        "createdAt": "2018-07-10T11:22:33.444Z",
+        "id": "abc",
+      },
+    }
+  }
+  navigation={
+    Object {
+      "navigate": [MockFunction],
+      "setParams": [MockFunction],
+    }
+  }
+  onCreateList={[Function]}
+  screenProps={
+    Object {
+      "archived": true,
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
+
+exports[`ShoppingListsContainer connected matches snapshot when not archived 2`] = `
+<ShoppingListsContainer
+  lists={
+    Object {
+      "abc": Object {
+        "archived": false,
+        "createdAt": "2018-07-10T11:22:33.444Z",
+        "id": "abc",
+      },
+    }
+  }
+  navigation={
+    Object {
+      "navigate": [MockFunction],
+      "setParams": [MockFunction],
+    }
+  }
+  onCreateList={[Function]}
+  screenProps={
+    Object {
+      "archived": false,
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;

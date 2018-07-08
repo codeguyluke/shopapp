@@ -118,7 +118,7 @@ const mapStateToProps = (state, ownProps) => ({
   ),
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   onToggleArchive: () =>
     dispatch(
       shoppingListsState.actions.toggleArchive({ id: ownProps.navigation.getParam('listId') })

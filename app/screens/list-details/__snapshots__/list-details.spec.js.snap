@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListDetails matches snapshot 1`] = `
+<KeyboardAwareScrollView
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  keyboardOpeningTime={250}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+>
+  <List
+    containerStyle={
+      Object {
+        "borderBottomWidth": 0,
+        "borderColor": "lightgrey",
+        "marginHorizontal": 16,
+        "marginTop": 16,
+      }
+    }
+  >
+    <ListItem
+      archived={false}
+      chevronColor="#bdc6cf"
+      component={[Function]}
+      disabled={false}
+      hideChevron={false}
+      item={
+        Object {
+          "id": "abc",
+        }
+      }
+      key="abc"
+      leftIconUnderlayColor="white"
+      onDelete={[Function]}
+      onToggle={[Function]}
+      onUpdate={[Function]}
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitleNumberOfLines={1}
+      switchButton={false}
+      textInputEditable={true}
+      titleNumberOfLines={1}
+      underlayColor="white"
+    />
+  </List>
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "borderColor": "lightgrey",
+        "borderWidth": 1,
+        "marginBottom": 24,
+        "marginTop": 16,
+        "width": "100%",
+      }
+    }
+    color="darkslategrey"
+    fontFamily="Hind-Medium"
+    fontSize={16}
+    icon={
+      Object {
+        "color": "darkslategrey",
+        "name": "add",
+        "size": 20,
+      }
+    }
+    onPress={[Function]}
+    rounded={true}
+    textStyle={
+      Object {
+        "marginTop": 2,
+      }
+    }
+    title="Add new item"
+  />
+</KeyboardAwareScrollView>
+`;
+
+exports[`ListDetails matches snapshot when archived 1`] = `
+<KeyboardAwareScrollView
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  keyboardOpeningTime={250}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+>
+  <List
+    containerStyle={
+      Object {
+        "borderBottomWidth": 0,
+        "borderColor": "lightgrey",
+        "marginHorizontal": 16,
+        "marginTop": 16,
+      }
+    }
+  >
+    <ListItem
+      archived={true}
+      chevronColor="#bdc6cf"
+      component={[Function]}
+      disabled={false}
+      hideChevron={false}
+      item={
+        Object {
+          "id": "abc",
+        }
+      }
+      key="abc"
+      leftIconUnderlayColor="white"
+      onDelete={[Function]}
+      onToggle={[Function]}
+      onUpdate={[Function]}
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitleNumberOfLines={1}
+      switchButton={false}
+      textInputEditable={true}
+      titleNumberOfLines={1}
+      underlayColor="white"
+    />
+  </List>
+</KeyboardAwareScrollView>
+`;
+
+exports[`ListDetails matches snapshot when no items 1`] = `
+<KeyboardAwareScrollView
+  enableAutomaticScroll={true}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  keyboardOpeningTime={250}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+  viewIsInsideTabBar={false}
+>
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "transparent",
+        "borderColor": "lightgrey",
+        "borderWidth": 1,
+        "marginBottom": 24,
+        "marginTop": 16,
+        "width": "100%",
+      }
+    }
+    color="darkslategrey"
+    fontFamily="Hind-Medium"
+    fontSize={16}
+    icon={
+      Object {
+        "color": "darkslategrey",
+        "name": "add",
+        "size": 20,
+      }
+    }
+    onPress={[Function]}
+    rounded={true}
+    textStyle={
+      Object {
+        "marginTop": 2,
+      }
+    }
+    title="Add new item"
+  />
+</KeyboardAwareScrollView>
+`;
+
+exports[`ListsDetailsContainer connected matches snapshot 1`] = `
+<ListsDetailsContainer
+  listDetails={
+    Object {
+      "id": "abc",
+      "items": Object {},
+      "title": "list title",
+    }
+  }
+  navigation={
+    Object {
+      "getParam": [Function],
+      "setParams": [MockFunction],
+    }
+  }
+  onAddItem={[Function]}
+  onDeleteItem={[Function]}
+  onRenameList={[Function]}
+  onToggleArchive={[Function]}
+  onToggleItem={[Function]}
+  onUpdateItem={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
