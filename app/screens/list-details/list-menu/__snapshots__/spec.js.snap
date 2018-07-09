@@ -4,6 +4,7 @@ exports[`ListMenu matches snapshot 1`] = `
 <Component
   animationType="none"
   hardwareAccelerated={false}
+  onRequestClose={[Function]}
   transparent={true}
   visible={true}
 >
@@ -49,6 +50,7 @@ exports[`ListMenu matches snapshot when archived 1`] = `
 <Component
   animationType="none"
   hardwareAccelerated={false}
+  onRequestClose={[Function]}
   transparent={true}
   visible={true}
 >

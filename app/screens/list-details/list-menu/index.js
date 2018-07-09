@@ -56,7 +56,7 @@ export default class ListMenu extends Component {
     const archiveButtonTitle = archived ? 'Unarchive list' : 'Archive list'
     const archiveButtonBackgroundColor = archived ? 'midnightblue' : 'crimson'
     return show ? (
-      <Modal animationType="none" transparent visible>
+      <Modal animationType="none" transparent visible onRequestClose={this.animateOut}>
         <Animatable.View
           ref={this.setBlurRef}
           animation="fadeIn"
